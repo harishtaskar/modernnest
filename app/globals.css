@@ -1,0 +1,117 @@
+:root{
+    --text-color: #252B42;
+    --second-text-color: #737373;
+    --second-border-color: #adadad;
+    --light-gray-1: #FAFAFA;
+    --primary-color: #24a5f0;
+    --success-text-color: #2DC071;
+    --muted-color: #BDBDBD;
+    --skeleton-color: #eeeeee;
+    --secondary-color-1: #23856D;
+    --dark-background-color: #252B42;
+}
+
+
+body{
+    user-select: none;
+}
+
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body{
+    width: 100%;
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+}
+
+
+.main::-webkit-scrollbar {
+    display: none;
+  }
+
+.flex-column-start{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    justify-content: center;
+}
+
+.flex-row-between{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-between;
+}
+.flex-row-center{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: center;
+}
+.flex-row-start{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: center;
+}
+
+p{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+ul{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+}
+
+.headings{
+    width: 100%;
+    max-width: 507px;
+    margin: 30px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.mainHeading{
+    color: var(--text-color);
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px;
+    letter-spacing: 0.2px;
+}
+
+.subHeading1{
+    color: var(--second-text-color);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+}
+
+.subHeading2{
+    color: var(--second-text-color);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    letter-spacing: 0.2px;
+}

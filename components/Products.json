@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Elegant Dining Table",
+    "images": [
+      "/assets/product1.jpg",
+      "https://example.com/furniture1_image2.jpg",
+      "https://example.com/furniture1_image3.jpg"
+    ],
+    "description": "A beautifully crafted dining table suitable for both formal and casual settings.",
+    "oldPrice": 799.99,
+    "newPrice": 599.99,
+    "rating": 4.5
+  },
+  {
+    "title": "Comfortable Sofa Set",
+    "images": [
+      "/assets/product2.jpg",
+      "https://example.com/furniture2_image2.jpg",
+      "https://example.com/furniture2_image3.jpg"
+    ],
+    "description": "Sink into comfort with this luxurious sofa set, perfect for your living room.",
+    "oldPrice": 1299.99,
+    "newPrice": 999.99,
+    "rating": 4.2
+  },
+  {
+    "title": "Modern Coffee Table",
+    "images": [
+      "/assets/product3.jpg",
+      "https://example.com/furniture3_image2.jpg",
+      "https://example.com/furniture3_image3.jpg"
+    ],
+    "description": "Add a touch of modernity to your living space with this stylish coffee table.",
+    "oldPrice": 299.99,
+    "newPrice": 249.99,
+    "rating": 4.8
+  },
+  {
+    "title": "Vintage Armchair",
+    "images": [
+      "/assets/product4.jpg",
+      "https://example.com/furniture4_image2.jpg",
+      "https://example.com/furniture4_image3.jpg"
+    ],
+    "description": "Bring a classic touch to your home with this vintage-style armchair.",
+    "oldPrice": 499.99,
+    "newPrice": 399.99,
+    "rating": 4.0
+  },
+  {
+    "title": "Sleek Bed Frame",
+    "images": [
+      "/assets/product5.jpg",
+      "https://example.com/furniture5_image2.jpg",
+      "https://example.com/furniture5_image3.jpg"
+    ],
+    "description": "Upgrade your bedroom with this modern and sleek bed frame.",
+    "oldPrice": 899.99,
+    "newPrice": 749.99,
+    "rating": 4.6
+  }
+]

@@ -1,0 +1,227 @@
+
+
+.inputText{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+}
+
+.inputLabel{
+    color: var(--text-color);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    text-transform: capitalize;
+}
+
+.inputdiv{
+    position: relative;
+    width: 100%;
+}
+
+.input{
+    width: calc(100% - 34px);
+    display: flex;
+    padding: 8px 16px;
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    border: 1px solid var(--second-border-color);
+    border-radius: 8px;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    letter-spacing: 0.5px;
+}
+
+.select{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+}
+
+.dropdown{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width:100%;
+    height: 46px;
+    max-width: 230px;
+}
+
+.input:focus,
+.input:hover{
+    outline-color: var(--primary-color);
+    border: 1.25px solid var(--second-border-color);
+}
+
+.inputerror:focus{
+    outline-color: red;
+    border: 1.25px solid red;
+}
+
+.input[type="number"]::-webkit-inner-spin-button,
+.input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.eyediv{
+    position: absolute;
+    right: 5%;
+    top: 31%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.warning{
+    color: red;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.primaryButton{
+    width: 100%;
+    display: flex;
+    min-height: 48px;
+    padding: 0px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-color);
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    text-transform: capitalize;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.secondaryButton
+{
+    width: 100%;
+    display: flex;
+    min-height: 36px;
+    padding: 0px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--primary-color);
+    background-color: white;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: capitalize;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.secondaryButton:hover{
+    background-color: rgb(36, 165, 240, 0.1);
+}
+
+.loading{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.otheroption{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    gap: 5px
+}
+
+.link{
+    text-decoration: underline;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.notfound{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.notfounddiv{
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 700px;
+    gap: 12px;
+    margin: 75px 20px;
+}
+
+.skeletonloader{
+    width: 100%;
+    height: 100%;
+    background-color: var(--skeleton-color);
+    animation: shine 800ms infinite;
+    opacity: .5;
+}
+
+.card{
+    min-width: 20px;
+    min-height: 20px;
+    border: 1px solid var(--muted-color);
+    background-color: white;
+    position: relative;
+}
+
+@keyframes shine {
+	form{
+        background-position: 50% 0, 0 0;
+    }
+    to {
+		background-position: 100% 0, /* move highlight to right */ 0 0;
+	}
+}
+
+
+@media screen and (max-width: 680px) {
+    .heading{
+        gap: 8px;
+        margin: 30px 30px;
+    }
+    .mainHeading{
+        font-size: 32px;
+    }
+    .eyediv{
+        right: 4%;
+        top: 32%;
+    }
+    .notfound{
+        align-items: flex-start;
+    }
+}

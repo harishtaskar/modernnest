@@ -1,0 +1,190 @@
+.main{
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.profile{
+    width: 100%;
+    max-width: 920px;
+    margin: 0px 100px;
+}
+
+.profileData{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+    flex-flow: wrap;
+}
+
+.left{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editBtn{
+    border: 1.5px solid var(--muted-color);
+    border-radius: 50%;
+    background-color: white;
+    color: var(--muted-color);
+    padding: 10px 7px;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 100px;    
+    margin-left: 120px;
+}
+
+.editBtn:hover{
+    border: 2px solid var(--muted-color);
+}
+
+.right{
+    flex: 3;
+}
+
+.profileNav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+}
+
+.link{
+    padding: 10px 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.link:hover, 
+.active{
+    color: var(--primary-color);
+    border-bottom: 2.5px solid var(--primary-color);
+    box-sizing: border-box;
+    /* font-weight: 600; */     
+    border-radius: 4px 4px 0px 0px;
+}
+
+.avatar{
+    border: 1px solid var(--muted-color);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    color: rgb(128, 128, 128)
+}
+
+.detailsTab{
+    width: 100%;
+    padding: 20px 0px;
+    height: 450px;
+    overflow: scroll;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.editTab{
+    width: 100%;
+    height: calc(450px - 68px);
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+    gap: 10px;
+    align-items: flex-start;
+}
+.settingsTab{
+    padding: 20px 0px;
+    height: 450px;
+    overflow: scroll;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.editTab::-webkit-scrollbar,
+.detailsTab::-webkit-scrollbar,
+.settingsTab::-webkit-scrollbar{
+    display: none;
+}
+
+.mainHeading{
+    color: var(--text-color);
+    text-align: center;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 50px;
+    letter-spacing: 0.2px;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    border-bottom: 1px solid var(--muted-color);
+    padding: 10px 0px;
+    
+}
+
+.row.row1{
+    border: none;
+}
+
+.pair{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+     /* border: 1px solid var(--muted-color); 
+     padding: 12px 8px;
+     border-radius: 8px; */
+
+}
+
+.pair2{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.boldText{
+    color: var(--text-color);
+    text-align: start;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-transform: capitalize;
+}
+
+.mediumText{
+    color: var(--text-color);
+    text-align: end;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+@media screen and (max-width: 980px) {
+    .profile{
+        margin: 0px 30px;
+    }
+    .pair{
+        justify-content: space-between;
+    }
+}
