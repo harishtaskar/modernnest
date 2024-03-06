@@ -25,7 +25,7 @@ const ReviewUserData = (props: Props) => {
   const storeUserToDB = async () => {
     const messege = await onUserRegister(registerData);
     if (messege === "ok") {
-      toast.success("🔥 User Registered Successfully!");
+      toast.success("User Registered Successfully!");
       setActiveModal("login");
       setActiveForm({
         name: "personal",

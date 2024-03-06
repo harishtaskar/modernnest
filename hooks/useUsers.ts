@@ -1,4 +1,5 @@
 import { currentUserState, registrationDataState } from "@/state";
+import { PORT } from "@/utils/config";
 import { nextLocalStorage } from "@/utils/localstorage";
 import { useRouter } from "next/navigation";
 import React, { useCallback } from "react";
@@ -18,7 +19,7 @@ const useUsers = () => {
 
   const onSetCurrentUser = useCallback((token: string) => {
     const fetchCurrentUser = async () => {
-      const res = await fetch("/api/users", {
+      const res = await fetch(`${PORT}/user/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -27,16 +28,15 @@ const useUsers = () => {
       });
       const CurrentUser = await res.json();
       if (res.status === 200) {
-        if (CurrentUser.messege === "ok") {
-          console.log(CurrentUser);
+        if (CurrentUser.res === "ok") {
           setCurrentUser(CurrentUser.user);
         } else {
-          console.log(CurrentUser.messege);
+          console.log(CurrentUser.msg);
           setCurrentUser("");
           router.push("/");
         }
       } else {
-        console.log(CurrentUser.messege);
+        console.log(CurrentUser.msg);
         setCurrentUser("");
         router.push("/");
       }
@@ -45,7 +45,7 @@ const useUsers = () => {
   }, []);
 
   const onUserLogin = useCallback(async (email: string, password: string) => {
-    const res = await fetch("/api/users/login", {
+    const res = await fetch(`${PORT}/user/signin`, {
       method: "GET",
       headers: {
         email: email,
@@ -54,20 +54,20 @@ const useUsers = () => {
     });
     const data = await res.json();
     if (res.status === 200) {
-      if (data.messege === "ok") {
+      if (data.res === "ok") {
         nextLocalStorage()?.setItem("Authorization", data.token);
         onSetCurrentUser(data.token);
-        return data.messege;
+        return { res: data.res, msg: data.msg };
       } else {
-        return data.messege;
+        return { res: data.res, msg: data.msg };
       }
     } else {
-      return data.messege;
+      return { res: data.res, msg: data.msg };
     }
   }, []);
 
   const onUserRegister = useCallback(async (user: Object) => {
-    const res = await fetch("http://localhost:3000/user/new", {
+    const res = await fetch(`${PORT}/user/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -76,13 +76,13 @@ const useUsers = () => {
     });
     const data = await res.json();
     if (res.status === 200) {
-      if (data.messege === "ok") {
-        return data.messege;
+      if (data.res === "ok") {
+        return data.msg;
       } else {
-        return data.messege;
+        return data.msg;
       }
     } else {
-      return data.messege;
+      return data.msg;
     }
   }, []);
 
@@ -90,7 +90,7 @@ const useUsers = () => {
     let authorized = false;
     const token = nextLocalStorage()?.getItem("Authorization") || "";
     const authenticateUser = async () => {
-      const res = await fetch("/api/users", {
+      const res = await fetch(`${PORT}/user`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -99,15 +99,15 @@ const useUsers = () => {
       });
       const CurrentUser = await res.json();
       if (res.status === 200) {
-        if (CurrentUser.messege === "ok") {
+        if (CurrentUser.res === "ok") {
           authorized = true;
         } else {
           setCurrentUser("");
-          router.push("/users/1213123");
+          router.push("/users/12131");
         }
       } else {
         setCurrentUser("");
-        router.push("/users/1212132131");
+        router.push("/users/12121321");
       }
     };
     authenticateUser();

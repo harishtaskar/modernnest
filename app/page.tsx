@@ -1,19 +1,15 @@
 "use client";
-import EndCredits from "@/components/Home/EndCredits";
 import FeatureProducts from "@/components/Home/FeatureProducts";
-import Footer from "@/components/shared/Footer";
 import Background from "@/components/HOC/Background";
 import Heading from "@/components/HOC/Heading";
 import Hero from "@/components/Home/Hero";
-import { activeModalState } from "@/state";
 import { useMemo } from "react";
-import { ToastContainer } from "react-toastify";
-import { useRecoilValue } from "recoil";
+import { ToastContainer, Slide } from "react-toastify";
+import "../firebase.js";
 
 export default function Home() {
-  const activeModal = useRecoilValue(activeModalState);
-
   const renderHeading = useMemo(() => {
+    ``;
     return (
       <Heading
         mainHeading="Featured Products"
@@ -26,29 +22,24 @@ export default function Home() {
   }, []);
 
   return (
-    <div
-      className={"main"}
-      style={
-        activeModal !== "" ? { overflow: "hidden" } : { overflow: "scroll" }
-      }
-    >
+    <div className={"main"}>
       <ToastContainer
         position="top-center"
-        autoClose={3000}
+        autoClose={2000}
+        limit={1}
         hideProgressBar
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
+        pauseOnFocusLoss={false}
         draggable
         pauseOnHover
-        theme="colored"
+        theme="dark"
+        transition={Slide}
       />
       <Hero />
       <Background body={renderHeading} />
       <FeatureProducts />
-      <Footer />
-      <EndCredits text="Made With Love By Harishtaskar All Right Reserved " />
     </div>
   );
 }

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "../css/FeatureProducts.module.css";
 import Image from "next/image";
+import useImages from "../../hooks/useImages";
+import defaultImage from "../../public/assets/product5.jpg";
 
 type Props = {
   title: string;
-  image: string;
+  image: any;
   description: string;
   rating: number;
   oldPrice: number;
@@ -19,16 +21,31 @@ const Product = ({
   oldPrice,
   newPrice,
 }: Props) => {
+  const { getImageViaUrl } = useImages();
+  const [productImage, setProductImage] = useState<string>();
+
+  useEffect(() => {
+    const getImage = async (path: string) => {
+      const imageURL: any = await getImageViaUrl(path);
+      setProductImage(imageURL);
+    };
+
+    if (!productImage) {
+      getImage(image.path);
+    }
+  }, []);
+
   const limitedTitle =
     title.length > 25 ? title.substring(0, 25) + "..." : title;
   const limitedDesc =
     description.length > 90
       ? description.substring(0, 90) + "..."
       : description;
+
   return (
     <div className={classes.product}>
       <Image
-        src={image}
+        src={productImage || defaultImage}
         alt="product"
         className={classes.image}
         width={400}

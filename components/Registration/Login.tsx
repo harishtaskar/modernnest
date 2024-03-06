@@ -44,13 +44,16 @@ const Login = ({ onClose }: Props) => {
   const onLoginHandler = useCallback(
     async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       e.preventDefault();
-      const res = await onUserLogin(userDetails.email, userDetails.password);
+      const { res, msg } = await onUserLogin(
+        userDetails.email,
+        userDetails.password
+      );
       if (res !== "ok") {
-        toast.error(res);
+        toast.error(msg);
       } else {
         setuserDetails({ email: "", password: "" });
         setActiveModal("");
-        toast.success(" 🔥 Login Successfully");
+        toast.success("Login Successfully");
       }
     },
     [userDetails]

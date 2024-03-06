@@ -1,18 +1,40 @@
 "use client";
-import React from "react";
-import { useRecoilValue } from "recoil";
+import React, { useCallback } from "react";
+import { useRecoilState } from "recoil";
 import classes from "@/components/css/Profile.module.css";
 import { currentUserState } from "@/state";
-import { PrimaryButton } from "../shared/Buttons";
+import { PrimaryButton, SecondaryButton } from "../shared/Buttons";
 import InputText from "../shared/InputText";
-import useUsers from "@/hooks/useUsers";
+import useNetwork from "@/hooks/useNetwork";
+import { PORT } from "@/utils/config";
+import { toast } from "react-toastify";
 
 type Props = {};
 
 const EditProfile = (props: Props) => {
-  const { onSetRegisterState } = useUsers();
-  const currentUser: RegisterData = useRecoilValue(currentUserState);
+  const [currentUser, setCurrentUser] =
+    useRecoilState<RegisterData>(currentUserState);
   const currentUserArr = Object.entries(currentUser);
+
+  const { patchRequest } = useNetwork();
+
+  const updateProfile = useCallback(async (user: any) => {
+    const response = await patchRequest(`${PORT}/user/update`, {
+      update: user,
+    });
+
+    if (response.res === "ok") {
+      const updatedUser = await response.update;
+      setCurrentUser(updatedUser);
+      toast.success(response.msg);
+    } else {
+      toast.error(response.msg);
+    }
+  }, []);
+
+  const onEditProfile = useCallback(() => {
+    updateProfile(currentUser);
+  }, [currentUser]);
 
   return (
     <>
@@ -29,8 +51,10 @@ const EditProfile = (props: Props) => {
               <InputText
                 key={value[0]}
                 label={value[0]}
-                onChange={() =>
-                  onSetRegisterState(value[0], value[1].toString())
+                onChange={(id: string, value: any) =>
+                  setCurrentUser((prev) => {
+                    return { ...prev, [id]: value };
+                  })
                 }
                 id={value[0]}
                 value={value[1]}
@@ -42,8 +66,8 @@ const EditProfile = (props: Props) => {
         })}
       </div>
       <div className={`${classes.row1} ${classes.row}`}>
-        <PrimaryButton name={"Cancel"} onClick={() => {}} />
-        <PrimaryButton name={"Edit"} onClick={() => {}} />
+        <SecondaryButton name={"Cancel"} onClick={() => {}} />
+        <PrimaryButton name={"Edit"} onClick={onEditProfile} />
       </div>
     </>
   );
